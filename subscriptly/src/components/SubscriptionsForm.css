@@ -1,0 +1,28 @@
+.myForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px;
+    margin: 0 auto;
+}
+.myForm input, .myForm select {
+    padding: 10px;
+    border: 1px, solid, #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.myForm button {
+    padding: 10px;
+    background-color: #add8e6;
+    width: max-content;
+    margin: 0 auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.myForm button button:hover {
+    background-color: #0056b3;
+}

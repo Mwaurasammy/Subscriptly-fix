@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AuthPage.css';
 
 
-const AuthPage = () => {
+const AuthPage = ({setUser}) => {
   const [isSignup, setIsSignup] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,7 +16,7 @@ const AuthPage = () => {
 
     if (isSignup) {
       // Signup Logic
-      const newUser = { name, email, password };
+      const newUser = { name, email, password, subscriptions: [] };
       const response = await fetch('http://localhost:5000/users', {
         method: 'POST',
         headers: {
@@ -27,6 +27,8 @@ const AuthPage = () => {
 
       if (response.ok) {
         alert('Signup successful!');
+        setUser(newUser.name)
+        navigate('/home')
       }
     } else {
       // Signin Logic
@@ -35,6 +37,7 @@ const AuthPage = () => {
 
       if (users.length > 0 && users[0].password === password) {
         alert('Signin successful!');
+        setUser(users[0].name)
         navigate('/home');
       } else {
         // Display alert message for wrong credentials

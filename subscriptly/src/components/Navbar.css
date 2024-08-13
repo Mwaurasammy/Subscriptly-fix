@@ -26,3 +26,8 @@ nav ul li a {
 nav ul li a.active {
   font-weight: bold;
 }
+
+.user-name {
+  font-weight: bold;
+  color: white;
+}
