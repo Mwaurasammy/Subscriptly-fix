@@ -4,13 +4,87 @@
       "id": "d23f",
       "name": "sammy",
       "email": "sammy@gmail.com",
-      "password": "1234"
+      "password": "1234",
+      "subscriptions": [
+        {
+          "id": "1",
+          "name": "Netflix",
+          "category": "Streaming",
+          "cost": 15.99,
+          "billing_cycle": "monthly",
+          "date_of_payment": "2024-08-10"
+        },
+        {
+          "id": "2",
+          "name": "Spotify",
+          "category": "Music",
+          "cost": 9.99,
+          "billing_cycle": "monthly",
+          "date_of_payment": "2024-08-01"
+        },
+        {
+          "id": "3",
+          "name": "Amazon Prime",
+          "category": "Shopping",
+          "cost": 119,
+          "billing_cycle": "yearly",
+          "date_of_payment": "2024-06-10"
+        },
+        {
+          "name": "New york times",
+          "category": "other",
+          "cost": "4.99",
+          "billing_cycle": "weekly",
+          "date_of_payment": "2024-08-13"
+        }
+      ]
     },
     {
       "id": "65c8",
       "name": "Ian",
       "email": "ian@gmail.com",
-      "password": "123"
+      "password": "123",
+      "subscriptions": [
+        {
+          "id": "1fa1",
+          "name": "Hulu",
+          "category": "streaming",
+          "cost": "7.99",
+          "billing_cycle": "monthly",
+          "date_of_payment": "2024-07-30"
+        },
+        {
+          "id": "db89",
+          "name": "New york times",
+          "category": "other",
+          "cost": "4.00",
+          "billing_cycle": "weekly",
+          "date_of_payment": "2024-08-05"
+        },
+        {
+          "id": "06a8",
+          "name": "PUBG",
+          "category": "gaming",
+          "cost": "10.00",
+          "billing_cycle": "monthly",
+          "date_of_payment": "2024-07-31"
+        }
+      ]
+    },
+    {
+      "id": "6b59",
+      "name": "sharon",
+      "email": "sharon@gmail.com",
+      "password": "1234",
+      "subscriptions": [
+        {
+          "name": "Hulu",
+          "category": "streaming",
+          "cost": "15.00",
+          "billing_cycle": "monthly",
+          "date_of_payment": "2024-08-01"
+        }
+      ]
     }
   ]
 }
