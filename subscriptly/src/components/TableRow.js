@@ -1,7 +1,7 @@
 import React from 'react'
 import {differenceInDays, addDays, addMonths, addWeeks} from 'date-fns'
-
-function TableRow({ subscription }) {
+import "../components/TableRow.css"
+function TableRow({ subscription,handleDelete }) {
     function calculateDaysLeft(dateOfPayment, billingCycle) {
         const paymentDate = new Date(dateOfPayment)
         let nextBillingDate;
@@ -38,6 +38,8 @@ function TableRow({ subscription }) {
         <td>{subscription.date_of_payment}</td>
         <td>{daysLeft}</td>
         <td style={statusStyle}>{status}</td>
+        <td><button className='delete-btn' onClick={()=>handleDelete(subscription.id)}>cancel</button></td>
+    
     </tr>
   )
 }
