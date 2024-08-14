@@ -36,6 +36,13 @@
           "cost": "4.99",
           "billing_cycle": "weekly",
           "date_of_payment": "2024-08-13"
+        },
+        {
+          "name": "psn",
+          "category": "gaming",
+          "cost": "10",
+          "billing_cycle": "monthly",
+          "date_of_payment": "2024-08-15"
         }
       ]
     },

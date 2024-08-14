@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AuthPage.css';
 
 
-const AuthPage = ({setUser}) => {
+const AuthPage = ({ setUser }) => {
   const [isSignup, setIsSignup] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -27,6 +27,7 @@ const AuthPage = ({setUser}) => {
 
       if (response.ok) {
         alert('Signup successful!');
+        localStorage.setItem('user', JSON.stringify(newUser));
         setUser(newUser.name)
         navigate('/home')
       }
@@ -37,6 +38,7 @@ const AuthPage = ({setUser}) => {
 
       if (users.length > 0 && users[0].password === password) {
         alert('Signin successful!');
+        localStorage.setItem('user', JSON.stringify(users[0]));
         setUser(users[0].name)
         navigate('/home');
       } else {
@@ -53,10 +55,10 @@ const AuthPage = ({setUser}) => {
 
   return (
     <div>
-      <h2>{isSignup ? 'Signup' : 'Signin'}</h2>
+      <h2>{isSignup ? 'Subscriptly' : 'Welcome'}</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label className='input1'>Name:</label>
+          {/* <label className='input1'>Name:</label> */}
           <input
             type="text"
             placeholder='name'
@@ -67,7 +69,7 @@ const AuthPage = ({setUser}) => {
         </div>
         {isSignup && (
           <div>
-            <label className='input2'>Email:</label>
+            {/* <label className='input2'>Email:</label> */}
             <input
               type="email"
               placeholder='email'
@@ -78,7 +80,7 @@ const AuthPage = ({setUser}) => {
           </div>
         )}
         <div>
-          <label className='input3'>Password:</label>
+          {/* <label className='input3'>Password:</label> */}
           <input
             type="password"
             placeholder='password'
