@@ -5,6 +5,7 @@ import AuthPage from './components/AuthPage';
 import HomePage from './pages/HomePage';
 import LandingPage from './pages/LandingPage';
 import './App.css';
+import SearchBar from './components/SearchBar';
 
 function App() {
   const [user, setUser] = useState(null);

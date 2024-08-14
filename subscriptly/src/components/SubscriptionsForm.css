@@ -8,6 +8,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px;
     margin: 0 auto;
+    margin-top: 450px;
 }
 .myForm input, .myForm select {
     padding: 10px;

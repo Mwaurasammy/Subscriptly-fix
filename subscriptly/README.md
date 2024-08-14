@@ -1,70 +1,161 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# **SubScriptly - Your Ultimate Subscription Manager**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Introduction**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+SubScriptly is a React-based subscription management application that allows users to keep track of their various digital subscriptions. With features like adding and canceling subscriptions, notifications for upcoming payments, and organizing subscriptions into categories, SubScriptly provides a streamlined way to manage your subscriptions efficiently. The app interacts with a local `db.json` file to simulate API calls and data persistence.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## **Table of Contents**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Dependencies](#dependencies)
+4. [Usage](#usage)
+5. [Folder Structure](#folder-structure)
+6. [Contributing](#contributing)
+7. [License](#license)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## **Features**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Signup/Sign In:** Secure authentication for managing subscriptions.
+- **Add Subscription:** Add new subscriptions with details like name, category, and payment date.
+- **Cancel Subscription:** Cancel and remove subscriptions easily.
+- **Notification System:** Get alerts before subscription payments are due.
+- **Subscription Categories:** Organize subscriptions into different categories (e.g., movie apps, music apps).
+- **Search/Filter Functionality:** Quickly find subscriptions using search and filter options.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## **Installation**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run SubScriptly locally, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repository:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```bash
+    git clone https://github.com/yourusername/SubScriptly.git
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Navigate to the project directory:**
 
-## Learn More
+    ```bash
+    cd SubScriptly
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Install the dependencies:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    npm install
+    ```
 
-### Code Splitting
+4. **Start the JSON server:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    npx json-server --watch db.json --port 3001
+    ```
 
-### Analyzing the Bundle Size
+5. **Start the React development server:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```bash
+    npm start
+    ```
 
-### Making a Progressive Web App
+6. Open your browser and navigate to `http://localhost:3000` to use the app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## **Dependencies**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+SubScriptly relies on the following dependencies:
 
-### Deployment
+- **React:** JavaScript library for building user interfaces.
+- **json-server:** A full fake REST API to simulate data persistence using a local JSON file.
+- **date-fns:** A lightweight library for handling date-related functionality, such as calculating days until a payment is due.
+- **axios:** Used for making HTTP requests to interact with the local JSON server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+To install these dependencies, run the following command:
 
-### `npm run build` fails to minify
+```bash
+npm install react json-server date-fns axios
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## **Usage**
+
+### **Adding a Subscription:**
+
+- Users can add a subscription by filling out a form with the subscription name, category, payment date, and cost.
+- The app will store this data in the local `db.json` file, simulating an API request.
+
+### **Canceling a Subscription:**
+
+- Users can cancel a subscription by selecting it from the list and clicking the 'Cancel' button.
+- This will remove the subscription from the list and update the local data.
+
+### **Notifications:**
+
+- The app will notify users when a subscription payment date is approaching, helping them avoid missed payments.
+- Notifications are generated based on the subscription data stored in `db.json`.
+
+### **Categories & Search:**
+
+- Users can organize their subscriptions into categories like movie apps and music apps.
+- The search and filter functionalities allow users to quickly find specific subscriptions based on name, category, or payment date.
+
+---
+
+## **Folder Structure**
+
+Here's a brief overview of the folder structure of the project:
+
+```
+SubScriptly/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── AddSubscription.js
+│   │   ├── CancelSubscription.js
+│   │   ├── Notification.js
+│   │   ├── CategoryFilter.js
+│   │   └── SearchBar.js
+│   ├── hooks/
+│   ├── services/
+│   │   └── api.js
+│   ├── App.js
+│   ├── index.js
+│   └── db.json
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+- **`public/`:** Contains the static HTML file.
+- **`src/components/`:** Contains the React components used in the app.
+- **`src/hooks/`:** Contains custom hooks used for managing state and effects.
+- **`src/services/`:** Contains the `api.js` file that handles interaction with the JSON server.
+- **`src/db.json`:** Contains the subscription data and simulates a backend database.
+
+---
+
+## **Contributing**
+
+Contributions are welcome! If you'd like to contribute to SubScriptly, please fork the repository and submit a pull request.
+
+---
+
+## **License**
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+---
+
+**SubScriptly** - Take control of your digital subscriptions today!

@@ -1,0 +1,11 @@
+.input-div{
+    margin-top: 40px;
+    display: flex;}
+    .input-div input{ 
+    width:410px;
+    border-radius: 10px;
+    box-shadow: inset;
+    border-color: black;
+    border-width: 2px;
+    margin-left: 250px;
+}
