@@ -2,7 +2,7 @@ import React from 'react'
 import EditableCell from "./EditableCell"
 import {differenceInDays, addDays, addMonths, addWeeks} from 'date-fns'
 import "../components/TableRow.css"
-function TableRow({ subscription,handleDelete, onUpdate, userId }) {
+function TableRow({ subscription,handleDelete, onUpdate}) {
     function calculateDaysLeft(dateOfPayment, billingCycle) {
         const paymentDate = new Date(dateOfPayment)
         let nextBillingDate;
@@ -32,16 +32,8 @@ function TableRow({ subscription,handleDelete, onUpdate, userId }) {
     }
     const handleSave = (field, newValue) => {
         const updatedSubscription = {...subscription, [field]: newValue}
-        onUpdate(userId, updatedSubscription)
+        onUpdate(subscription.id, updatedSubscription)
     }
-    // <td>{subscription.name}</td>
-    //     <td>{subscription.category}</td>
-    //     <td>{subscription.cost}</td>
-    //     <td>{subscription.billing_cycle}</td>
-    //     <td>{subscription.date_of_payment}</td>
-    //     <td>{daysLeft}</td>
-    //     <td style={statusStyle}>{status}</td>
-    //     <td><button className='delete-btn' onClick={()=>handleDelete(subscription.id)}>cancel</button></td>
   return (
     <tr>
         <EditableCell value={subscription.name} onSave={(newValue) => handleSave('name', newValue)}/>

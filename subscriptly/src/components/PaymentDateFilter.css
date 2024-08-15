@@ -1,0 +1,11 @@
+.dateFilter {
+    margin-left: 200px;
+    margin-top: 10px;
+}
+input {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: inset;
+    border-color: black;
+    border-width: 2px;
+}
