@@ -2,7 +2,8 @@ import React from 'react'
 import TableRow from "./TableRow"
 import "./Table.css"
 
-function Table( {subscriptions,handleDelete} ) {
+function Table( {subscriptions,handleDelete, onUpdate, userId} ) {
+
   return (
     <table>
         <thead>
@@ -19,7 +20,7 @@ function Table( {subscriptions,handleDelete} ) {
         </thead>
         <tbody>
             {subscriptions.map(subscription => (
-                <TableRow key={subscription.id} subscription={subscription} handleDelete={handleDelete}/>
+                <TableRow key={subscription.id} subscription={subscription} handleDelete={handleDelete} onUpdate={onUpdate} userId={userId}/>
             ))}
         </tbody>
     </table>
