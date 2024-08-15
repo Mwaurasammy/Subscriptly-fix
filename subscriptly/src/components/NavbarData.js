@@ -8,12 +8,12 @@ export const NavbarData = [
     {
         title: "Home",
         icon: <HomeIcon />,
-        link: "landing"
+        link: "/home"
     },
     {
         title: "Subscriptions",
         icon: <SubscriptionsIcon />,
-        link: "/home"
+        link: "/subscriptions"
     },
     {
         title: "Notifications",

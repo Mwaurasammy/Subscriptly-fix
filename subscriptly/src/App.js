@@ -3,9 +3,10 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AuthPage from './components/AuthPage';
 import HomePage from './pages/HomePage';
+import SubscriptionsPage from "./pages/SubscriptionsPage"
+import NotificationsPage from "./pages/NotificationsPage"
 import LandingPage from './pages/LandingPage';
-// import './App.css';
-import SearchBar from './components/SearchBar';
+import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +33,8 @@ function App() {
 
         <Route path="/landing" element={<LandingPage user={user} />} />
         <Route path="/home" element={<HomePage user={user} />} />
+        <Route path="/subscriptions" element={<SubscriptionsPage user={user} />} />
+        <Route path="/notifications" element={<NotificationsPage user={user} />} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
       </Routes>
     </div>
