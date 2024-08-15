@@ -5,11 +5,14 @@ import SubscriptionsForm from "../components/SubscriptionsForm"
 import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
 import Filter from "../components/Filter"
+import PaymentDateFilter from "../components/PaymentDateFilter"
 
 const HomePage = ({user}) => {
   const [subscriptions, setSubscriptions] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
 
   useEffect(() => {
     const fetchSubscriptions = () => {
@@ -31,10 +34,7 @@ const HomePage = ({user}) => {
     }
     fetchSubscriptions();
   }, [user]);
-  // const handleDelete=(id)=>{
-  //   alert("You are about to cancel your subscription!")
-  //   setSubscriptions(prev=>prev.filter((subscription)=>subscription.id!==id))
-  // }
+  
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to cancel this subscription?")) {
       fetch(`http://localhost:5000/users?name=${user}`)
@@ -67,10 +67,13 @@ const HomePage = ({user}) => {
       .catch(error => console.error('Error fetching user data:', error))
   }
 }
-  const filteredSubscriptions= subscriptions.filter(subscription =>
-    subscription.name.toLowerCase().includes(searchTerm.toLowerCase()) && 
-    (selectedCategory === '' || subscription.category.toLowerCase() === selectedCategory.toLowerCase())
-  );
+  const filteredSubscriptions= subscriptions.filter(subscription => {
+    const matchSearch = subscription.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchCategory = selectedCategory === '' || subscription.category.toLowerCase() === selectedCategory.toLowerCase()
+    const matchDateRange = (!startDate || new Date(subscription.date_of_payment) >= new Date(startDate)) &&
+                            (!endDate || new Date(subscription.date_of_payment) <= new Date(endDate))
+    return matchSearch && matchCategory && matchDateRange
+});
   
   
   const handleAddSubscription = (newSubscription) => {
@@ -83,35 +86,21 @@ const HomePage = ({user}) => {
   if (!user) {
     return null;
   }
-  const handleUpdateSubscription = (userId, updatedSubscription) => {
-    setSubscriptions((prevSubscriptions) => {
-      const updatedSubscriptions = prevSubscriptions.map((subscription) => 
-        subscription.id === updatedSubscription.id ? updatedSubscription : subscription
+  const handleUpdateSubscription = (id, updatedSubscription) => {
+    setSubscriptions((prevSubscriptions) => 
+      prevSubscriptions.map((subscription) => 
+        subscription.id === id ? updatedSubscription : subscription
       )
-    
-    fetch(`http://localhost:5000/users/${userId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({subscriptions: updatedSubscriptions})
-    })
-    .then(res => res.json())
-    .then(data => {
-      setSubscriptions(data.subscriptions)
-    })
-    .catch(error => console.error('Error updating:', error))
-    return updatedSubscriptions;
-  })
-  }
+  )
+}
   return (
-    <div  class="myHomePage">
-      {/* <h2 id="message">Welcome to the Homepage, {user}!</h2> */}
+    <div className="myHomePage">
       <SubscriptionsForm user={user} onAddSubscription={handleAddSubscription}/>
       <SearchBar setSearchTerm={setSearchTerm}/>
       <Filter selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange}/>
-      <Table subscriptions={filteredSubscriptions} handleDelete={handleDelete} onUpdate={handleUpdateSubscription} userId={user.id}/>
-    <Footer />
+      <PaymentDateFilter startDate={startDate} endDate={endDate} onStartDateChange={setStartDate} onEndDateChange={setEndDate}/>
+      <Table subscriptions={filteredSubscriptions} handleDelete={handleDelete} onUpdate={handleUpdateSubscription}/>
+      <Footer />
     </div>
   );
 };

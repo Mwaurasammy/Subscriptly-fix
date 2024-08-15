@@ -21,14 +21,6 @@
           "cost": 9.99,
           "billing_cycle": "monthly",
           "date_of_payment": "2024-08-01"
-        },
-        {
-          "id": "3",
-          "name": "Amazon Prime",
-          "category": "Shopping",
-          "cost": 119,
-          "billing_cycle": "yearly",
-          "date_of_payment": "2024-06-10"
         }
       ]
     },
