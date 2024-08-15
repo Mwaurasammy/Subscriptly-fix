@@ -29,20 +29,6 @@
           "cost": 119,
           "billing_cycle": "yearly",
           "date_of_payment": "2024-06-10"
-        },
-        {
-          "name": "New york times",
-          "category": "other",
-          "cost": "4.99",
-          "billing_cycle": "weekly",
-          "date_of_payment": "2024-08-13"
-        },
-        {
-          "name": "psn",
-          "category": "gaming",
-          "cost": "10",
-          "billing_cycle": "monthly",
-          "date_of_payment": "2024-08-15"
         }
       ]
     },
@@ -90,6 +76,28 @@
           "cost": "15.00",
           "billing_cycle": "monthly",
           "date_of_payment": "2024-08-01"
+        }
+      ]
+    },
+    {
+      "id": "9d4e",
+      "name": "Wahu",
+      "email": "wahu@example.com",
+      "password": "1234",
+      "subscriptions": [
+        {
+          "name": "ShowMax",
+          "category": "streaming",
+          "cost": "15.00",
+          "billing_cycle": "monthly",
+          "date_of_payment": "2024-08-15"
+        },
+        {
+          "name": "PUBG",
+          "category": "gaming",
+          "cost": "10.00",
+          "billing_cycle": "monthly",
+          "date_of_payment": "2024-08-13"
         }
       ]
     }

@@ -1,5 +1,5 @@
 table {
-    width: max-content;
+    max-width: max-content;
     border-collapse: collapse;
     margin: 20px 20px;
     font-size: 1rem;
@@ -7,7 +7,6 @@ table {
     background-color: #f8f9fa;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    over-flow: hidden;
 }
 td, th {
     padding: 5px 15px;
