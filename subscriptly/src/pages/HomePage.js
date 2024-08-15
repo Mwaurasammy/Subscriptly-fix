@@ -83,14 +83,34 @@ const HomePage = ({user}) => {
   if (!user) {
     return null;
   }
-
+  const handleUpdateSubscription = (userId, updatedSubscription) => {
+    setSubscriptions((prevSubscriptions) => {
+      const updatedSubscriptions = prevSubscriptions.map((subscription) => 
+        subscription.id === updatedSubscription.id ? updatedSubscription : subscription
+      )
+    
+    fetch(`http://localhost:5000/users/${userId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({subscriptions: updatedSubscriptions})
+    })
+    .then(res => res.json())
+    .then(data => {
+      setSubscriptions(data.subscriptions)
+    })
+    .catch(error => console.error('Error updating:', error))
+    return updatedSubscriptions;
+  })
+  }
   return (
     <div  class="myHomePage">
       {/* <h2 id="message">Welcome to the Homepage, {user}!</h2> */}
       <SubscriptionsForm user={user} onAddSubscription={handleAddSubscription}/>
       <SearchBar setSearchTerm={setSearchTerm}/>
       <Filter selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange}/>
-      <Table subscriptions={filteredSubscriptions} handleDelete={handleDelete}/>
+      <Table subscriptions={filteredSubscriptions} handleDelete={handleDelete} onUpdate={handleUpdateSubscription} userId={user.id}/>
     <Footer />
     </div>
   );
