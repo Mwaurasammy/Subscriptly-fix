@@ -1,3 +1,8 @@
 #message {
     color: black;
 }
+.myHomePage {
+    margin-top: 100px;
+    max-width: max-content;
+    max-height: max-content;
+}

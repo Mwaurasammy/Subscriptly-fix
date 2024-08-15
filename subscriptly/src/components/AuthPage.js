@@ -55,7 +55,7 @@ const AuthPage = ({ setUser }) => {
 
   return (
     <div>
-      <h2>{isSignup ? 'Subscriptly' : 'Welcome'}</h2>
+      <h2 id="loginHeader">{isSignup ? 'Subscriptly' : 'Welcome'}</h2>
       <form onSubmit={handleSubmit}>
         <div>
           {/* <label className='input1'>Name:</label> */}
