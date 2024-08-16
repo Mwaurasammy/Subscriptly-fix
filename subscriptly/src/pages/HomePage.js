@@ -1,5 +1,4 @@
 import React from 'react';
-import curve from '../assets/curve.jpg'; 
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import './HomePage.css';
 

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import "./Notifications.css";
 import {differenceInDays, addMonths, addWeeks} from 'date-fns'
-import Footer from '../components/Footer.js';
 import '../components/Footer.css';
 import './NotificationPage.css';
 
