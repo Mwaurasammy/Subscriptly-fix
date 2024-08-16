@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Table from "../components/Table";
 import "./HomePage.css";
+import './SubscriptionPage.css';
 import SubscriptionsForm from "../components/SubscriptionsForm";
 import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
@@ -135,11 +136,21 @@ const HomePage = ({ user }) => {
 
   return (
     <div className="myHomePage">
-      <SubscriptionsForm user={user} onAddSubscription={handleAddSubscription} />
-      <SearchBar setSearchTerm={setSearchTerm} />
-      <Filter selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
-      <PaymentDateFilter startDate={startDate} endDate={endDate} onStartDateChange={setStartDate} onEndDateChange={setEndDate} />
-      <Table subscriptions={filteredSubscriptions} handleDelete={handleDelete} onUpdate={handleUpdateSubscription} />
+      <div className="topSection">
+        <div className="leftColumn">
+          <SubscriptionsForm user={user} onAddSubscription={handleAddSubscription} />
+        </div>
+        <div className="rightColumn">
+          <div className="rightColumnContainer">
+            <SearchBar setSearchTerm={setSearchTerm} className="search" />
+            <Filter selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} className="filter" />
+            <PaymentDateFilter startDate={startDate} endDate={endDate} onStartDateChange={setStartDate} onEndDateChange={setEndDate} className="dates" />
+          </div>
+        </div>
+      </div>
+      <div className="tableContainer">
+        <Table subscriptions={filteredSubscriptions} handleDelete={handleDelete} onUpdate={handleUpdateSubscription} />
+      </div>
       <Footer />
     </div>
   );

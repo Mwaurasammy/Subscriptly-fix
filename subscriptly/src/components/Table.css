@@ -12,15 +12,15 @@ td, th {
     padding: 5px 15px;
 }
 th {
-    background-color: #add8e6;
-    color: black;
+    background-color: #05161A;
+    color: rgb(255, 255, 255);
     font-weight: bold;
 }
-tr: nth-child(even) {
+tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-tr: hover {
-    background-color:#e0f7fa;
+tr:hover {
+    background-color:#0f959c6b;
 }
 td {
     border-bottom: 1px solid #ddd;

@@ -1,6 +1,6 @@
 .dateFilter {
-    margin-left: 200px;
-    margin-top: 10px;
+    margin-left: 60px;
+    margin-top: 20px;
 }
 input {
     padding: 10px;
@@ -9,3 +9,19 @@ input {
     border-color: black;
     border-width: 2px;
 }
+.dateFilter {
+    display: flex;
+    flex-direction: row; /* Arrange children vertically */
+    gap: 15px; /* Space between the labels */
+    padding: 10px; /* Add padding inside the container */
+    border: 1px solid #ddd; /* Add border to the container */
+    border-radius: 8px; /* Add rounded corners */
+    background-color: #f9f9f9; /* Optional: add background color */
+    max-width: 350px;
+    max-height: fit-content;
+  }
+  .dateFilter input {
+    padding: 5px; /* Add padding inside the input */
+    border: 1px solid #ccc; /* Add border for inputs */
+    border-radius: 4px; /* Add rounded corners to inputs */
+  }

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import "./Notifications.css";
 import {differenceInDays, addMonths, addWeeks} from 'date-fns'
 import Footer from '../components/Footer.js';
 import '../components/Footer.css';
@@ -50,28 +51,25 @@ const NotificationsPage = ({user}) => {
     }
 
     return (
-        <div className="notifications-page">
-            <div className="notifications-content">
-                <h2 className='notifs'>Notifications</h2>
-                {notifications.length > 0 ? (
-                    <ul>
-                        {notifications.map((subscription) => {
-                            const daysLeft = calculateDaysLeft(subscription.date_of_payment, subscription.billing_cycle)
-                            return (
-                            <li key={subscription.id}>
-                                Your subscription to {subscription.name} is expiring soon.
-                                 ({daysLeft}) {daysLeft === 1 ? 'day' : 'days'} left!
-                            </li>
-                            )
-                        })}
-                    </ul>
-                ) : (
-                    <p>No subscriptions are expiring soon.</p>
-                )}
-            </div>
-            <Footer className="footer" />
-        </div>
-    )
-}
+        <div className="notifications-container">
+        <h2>Notifications</h2>
+        {notifications.length > 0 ? (
+            <ul>
+                {notifications.map((subscription) => {
+                    const daysLeft = calculateDaysLeft(subscription.date_of_payment, subscription.billing_cycle)
+                    return (
+                    <li key={subscription.id}>
+                        Your subscription to {subscription.name} is expiring soon.
+                         ({daysLeft}) {daysLeft === 1 ? 'day' : 'days'} left!
+                    </li>
+                    )
+                })}
+            </ul>
+        ) : (
+            <p>No subscriptions are expiring soon.</p>
+        )}
+    </div>
+);
+};
 
 export default NotificationsPage;

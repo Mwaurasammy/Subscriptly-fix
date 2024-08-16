@@ -6,7 +6,7 @@ body {
 .NavBar {
   height: 100%;
   width: 250px; /* Expanded width */
-  background-color: #2F4050;
+  background-color: #05161A;
   transition: width 0.3s ease; /* Smooth transition */
   position: fixed;
   top: 0;
@@ -44,11 +44,11 @@ body {
 
 .NavBarList .row:hover {
   cursor: pointer;
-  background-color: #293846;
+  background-color: #0F969C;
 }
 
 .NavBarList #active {
-  background-color: #293846;
+  background-color: #294D61;
 }
 
 .row #icon {
