@@ -1,8 +1,11 @@
 import React from 'react'
 import EditableCell from "./EditableCell"
-import {differenceInDays, addDays, addMonths, addWeeks} from 'date-fns'
+import {differenceInDays, addMonths, addWeeks} from 'date-fns'
 import "../components/TableRow.css"
+
+//Create table rows
 function TableRow({ subscription,handleDelete, onUpdate}) {
+    //Function to calculate days left for a subscription to expire
     function calculateDaysLeft(dateOfPayment, billingCycle) {
         const paymentDate = new Date(dateOfPayment)
         let nextBillingDate;
@@ -25,11 +28,13 @@ function TableRow({ subscription,handleDelete, onUpdate}) {
     
         return daysLeft >= 0 ? daysLeft : 0;
     }
+    //Initialize days left and activity status of a subscription. To be added to the table row.
     const daysLeft = calculateDaysLeft(subscription.date_of_payment, subscription.billing_cycle)
     const status = daysLeft > 0 ? 'Active' : 'Inactive'
     const statusStyle = {
         color: status === 'Active' ? 'green' : 'red'
     }
+    //Function to save the cell details after editing
     const handleSave = (field, newValue) => {
         const updatedSubscription = {...subscription, [field]: newValue}
         onUpdate(subscription.id, updatedSubscription)

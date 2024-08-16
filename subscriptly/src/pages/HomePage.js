@@ -3,6 +3,7 @@ import curve from '../assets/curve.jpg';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import './HomePage.css';
 
+//Home page with user details after successful login.
 function HomePage({ user }) {
   return (
     <div>

@@ -2,6 +2,7 @@ import React from 'react'
 import logo from "../assets/1200x600wa.png"
 import "./LandingPage.css"
 
+//The landing page with app logo and motto.
 const LandingPage = () => {
   return (
     <div>

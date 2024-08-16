@@ -1,5 +1,7 @@
 import React from 'react'
 import "./PaymentDateFilter.css"
+
+//Input start and end dates to filter the subscriptions
 const PaymentDateFilter = ({startDate, endDate, onStartDateChange, onEndDateChange}) => {
   return (
     <div className="dateFilter">
