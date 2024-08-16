@@ -17,7 +17,7 @@ const AuthPage = ({ setUser }) => {
     if (isSignup) {
       // Signup Logic
       const newUser = { name, email, password, subscriptions: [] };
-      const response = await fetch('http://localhost:5000/users', {
+      const response = await fetch('https://subscriptly-server.onrender.com/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const AuthPage = ({ setUser }) => {
       }
     } else {
       // Signin Logic
-      const response = await fetch(`http://localhost:5000/users?name=${name}`);
+      const response = await fetch(`https://subscriptly-server.onrender.com/users?name=${name}`);
       const users = await response.json();
 
       if (users.length > 0 && users[0].password === password) {

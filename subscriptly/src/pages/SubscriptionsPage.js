@@ -20,7 +20,7 @@ const SubscriptionsPage = ({ user }) => {
   useEffect(() => {
     const fetchSubscriptions = () => {
       if (user) {
-        fetch(`http://localhost:5000/users?name=${user}`)
+        fetch(`https://subscriptly-server.onrender.com/users?name=${user}`)
           .then(res => {
             if (!res.ok) {
               throw new Error('Network Response Was Not Ok');
@@ -41,7 +41,7 @@ const SubscriptionsPage = ({ user }) => {
   //Delete the current user's subscription by clicking cancel button and persist changes to server
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to cancel this subscription?")) {
-      fetch(`http://localhost:5000/users?name=${user}`)
+      fetch(`https://subscriptly-server.onrender.com/users?name=${user}`)
         .then(res => res.json())
         .then(users => {
           if (users.length > 0) {
@@ -52,7 +52,7 @@ const SubscriptionsPage = ({ user }) => {
               ...userData,
               subscriptions: updatedSubscriptions
             };
-            fetch(`http://localhost:5000/users/${userData.id}`, {
+            fetch(`https://subscriptly-server.onrender.com/users/${userData.id}`, {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ const SubscriptionsPage = ({ user }) => {
     const newSubWithId = { ...newSubscription, id };
     const updatedSubscriptions = [...subscriptions, newSubWithId];
 
-    fetch(`http://localhost:5000/users?name=${user}`)
+    fetch(`https://subscriptly-server.onrender.com/users?name=${user}`)
       .then(res => res.json())
       .then(users => {
         if (users.length > 0) {
@@ -101,7 +101,7 @@ const SubscriptionsPage = ({ user }) => {
             ...userData,
             subscriptions: updatedSubscriptions
           };
-          return fetch(`http://localhost:5000/users/${userData.id}`, {
+          return fetch(`https://subscriptly-server.onrender.com/users/${userData.id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json'

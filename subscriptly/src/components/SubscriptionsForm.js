@@ -22,7 +22,7 @@ const handleChange = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:5000/users?name=${user}`)
+    fetch(`https://subscriptly-server.onrender.com/users?name=${user}`)
         .then(res => res.json())
         .then(users => {
             if (users.length > 0) {
@@ -34,7 +34,7 @@ const handleSubmit = (e) => {
                     subscriptions: updatedSubscriptions,
                 };
 
-                return fetch(`http://localhost:5000/users/${userData.id}`, {
+                return fetch(`https://subscriptly-server.onrender.com/users/${userData.id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

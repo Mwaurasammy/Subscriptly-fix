@@ -12,7 +12,7 @@ const NotificationsPage = ({user}) => {
     useEffect(() => {
         const fetchNotifications = () => {
             if (user) {
-                fetch(`http://localhost:5000/users?name=${user}`)
+                fetch(`https://subscriptly-server.onrender.com/users?name=${user}`)
                 .then(res => res.json())
                 .then(users => {
                     if(users.length > 0) {
