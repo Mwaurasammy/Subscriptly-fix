@@ -1,0 +1,73 @@
+.myHomePage {
+  display: flex;
+  flex-direction: column; 
+  width: 100%; 
+  gap: 20px; 
+  /* background: linear-gradient(to right, #05161A, #072E33, #0C7075, #0F969C, #6DA5C0); */
+  /* background-blend-mode: color; */
+  height: 100vh;
+}
+
+  .topSection {
+    display: flex;
+    justify-content: space-between; /* Space out left and right columns */
+    align-items: flex-start; /* Align items to the top */
+    padding: 20px; /* Adjust as needed for spacing */
+  }
+  
+  .leftColumn {
+    flex: 1; /* Adjust as needed */
+  }
+  
+  .rightColumn {
+    flex: 5; /* Adjust this value based on your design needs */
+    margin: auto; /* Center items if needed */
+  }
+  
+  .search {
+    margin-bottom: 20px; /* Adjust spacing as needed */
+  }
+  
+  .filter {
+    margin-bottom: 20px; /* Adjust spacing as needed */
+  }
+  
+  .dates {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .rightColumnContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between items in the container */
+    padding: 10px; /* Optional: add padding inside the container */
+    background-color: #f9f9f9; /* Optional: add a background color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px;
+    margin-left: 100px;
+  }
+  
+  /* Media Query for Responsive Design */
+  @media (max-width: 768px) {
+    .topSection {
+      flex-direction: column; /* Stack columns on smaller screens */
+    }
+  }
+  .footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    background-color: #05161A;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }

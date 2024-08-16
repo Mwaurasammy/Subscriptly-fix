@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import "./Notifications.css";
 import {differenceInDays, addMonths, addWeeks} from 'date-fns'
 
 const NotificationsPage = ({user}) => {
@@ -47,24 +48,24 @@ const NotificationsPage = ({user}) => {
     }
 
     return (
-        <div>
-            <h2>Notifications</h2>
-            {notifications.length > 0 ? (
-                <ul>
-                    {notifications.map((subscription) => {
-                        const daysLeft = calculateDaysLeft(subscription.date_of_payment, subscription.billing_cycle)
-                        return (
-                        <li key={subscription.id}>
-                            Your subscription to {subscription.name} is expiring soon.
-                             ({daysLeft}) {daysLeft === 1 ? 'day' : 'days'} left!
-                        </li>
-                        )
-                    })}
-                </ul>
-            ) : (
-                <p>No subscriptions are expiring soon.</p>
-            )}
-        </div>
-    )
+        <div className="notifications-container">
+        <h2>Notifications</h2>
+        {notifications.length > 0 ? (
+            <ul>
+                {notifications.map((subscription) => {
+                    const daysLeft = calculateDaysLeft(subscription.date_of_payment, subscription.billing_cycle)
+                    return (
+                    <li key={subscription.id}>
+                        Your subscription to {subscription.name} is expiring soon.
+                         ({daysLeft}) {daysLeft === 1 ? 'day' : 'days'} left!
+                    </li>
+                    )
+                })}
+            </ul>
+        ) : (
+            <p>No subscriptions are expiring soon.</p>
+        )}
+    </div>
+)
 }
 export default NotificationsPage
