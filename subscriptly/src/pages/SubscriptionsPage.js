@@ -8,13 +8,15 @@ import SearchBar from '../components/SearchBar';
 import Filter from "../components/Filter";
 import PaymentDateFilter from "../components/PaymentDateFilter";
 
-const HomePage = ({ user }) => {
+//Page to display subscriptions.
+const SubscriptionsPage = ({ user }) => {
   const [subscriptions, setSubscriptions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-
+  
+  //Fetch the current user's subscriptions
   useEffect(() => {
     const fetchSubscriptions = () => {
       if (user) {
@@ -36,6 +38,7 @@ const HomePage = ({ user }) => {
     fetchSubscriptions();
   }, [user]);
 
+  //Delete the current user's subscription by clicking cancel button and persist changes to server
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to cancel this subscription?")) {
       fetch(`http://localhost:5000/users?name=${user}`)
@@ -69,6 +72,7 @@ const HomePage = ({ user }) => {
     }
   };
 
+  //Filter the subscriptions by name search, category and date range.
   const filteredSubscriptions = subscriptions.filter(subscription => {
     const matchSearch = subscription.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchCategory = selectedCategory === '' || subscription.category.toLowerCase() === selectedCategory.toLowerCase();
@@ -77,6 +81,7 @@ const HomePage = ({ user }) => {
     return matchSearch && matchCategory && matchDateRange;
   });
 
+  //Function to add a new subscription and give a random id.Added subscription is persisted to server
   const handleAddSubscription = (newSubscription) => {
     const generateId = (subscriptions) => {
       let maxId = subscriptions.reduce((max, sub) => Math.max(max, parseInt(sub.id)), 0);
@@ -114,10 +119,12 @@ const HomePage = ({ user }) => {
       .catch(error => console.error('Error updating subscriptions:', error));
   };
 
+  //Function to determine selected category for filtering
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
 
+  //Function to handle edited subscription cell in the table
   const handleUpdateSubscription = (id, updatedSubscription) => {
     setSubscriptions((prevSubscriptions) =>
       prevSubscriptions.map((subscription) =>
@@ -126,6 +133,7 @@ const HomePage = ({ user }) => {
     );
   };
 
+  //Display this message if no user is logged in.
   if (!user) {
     return (
       <div className="sign-in-prompt" style={{ textAlign: 'center', marginTop: '20px', color: 'black !important' }}>
@@ -156,4 +164,4 @@ const HomePage = ({ user }) => {
   );
 };
 
-export default HomePage;
+export default SubscriptionsPage;

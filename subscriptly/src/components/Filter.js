@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Filter.css"
 
+//Function to Select category to filter. 
 const Filter = ({selectedCategory, onCategoryChange}) => {
   return (
     <div className="filtering">

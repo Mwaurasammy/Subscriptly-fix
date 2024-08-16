@@ -1,6 +1,7 @@
 import React from 'react';
 import "../components/Footer.css";
 
+//Footer modals
 function Footer() {
     function handleSubmit(e){
         e.preventDefault();

@@ -2,6 +2,7 @@ import React from 'react'
 import TableRow from "./TableRow"
 import "./Table.css"
 
+//Table header and map each subcription row.
 function Table( {subscriptions,handleDelete, onUpdate} ) {
 
   return (

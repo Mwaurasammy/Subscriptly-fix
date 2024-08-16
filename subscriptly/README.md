@@ -1,4 +1,4 @@
-
+# GROUP TWO
 
 # **SubScriptly - Your Ultimate Subscription Manager**
 
@@ -27,6 +27,7 @@ SubScriptly is a React-based subscription management application that allows use
 - **Signup/Sign In:** Secure authentication for managing subscriptions.
 - **Add Subscription:** Add new subscriptions with details like name, category, and payment date.
 - **Cancel Subscription:** Cancel and remove subscriptions easily.
+- **Edit Subscription:** Edit a subscription.
 - **Notification System:** Get alerts before subscription payments are due.
 - **Subscription Categories:** Organize subscriptions into different categories (e.g., movie apps, music apps).
 - **Search/Filter Functionality:** Quickly find subscriptions using search and filter options.

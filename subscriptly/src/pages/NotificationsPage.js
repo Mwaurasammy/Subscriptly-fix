@@ -8,6 +8,7 @@ import './NotificationPage.css';
 const NotificationsPage = ({user}) => {
     const [notifications, setNotifications] = useState([])
 
+    //Fetch user data and individual's user subscriptions
     useEffect(() => {
         const fetchNotifications = () => {
             if (user) {
@@ -28,7 +29,7 @@ const NotificationsPage = ({user}) => {
         }
         fetchNotifications()
     }, [user])
-
+    //Calculate days left for a subscription to expire (less than 7 days) and display them in the notifications page.
     function calculateDaysLeft(dateOfPayment, billingCycle) {
         const paymentDate = new Date(dateOfPayment)
         let nextBillingDate;

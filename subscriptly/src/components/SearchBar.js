@@ -1,5 +1,7 @@
 import React from 'react'
 import "./SearchBar.css"
+
+//Search by subscription name.
 function SearchBar({setSearchTerm}) {
 
     const handleChange=(e)=>{
