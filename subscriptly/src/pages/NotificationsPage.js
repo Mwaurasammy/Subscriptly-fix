@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import "./Notifications.css";
 import {differenceInDays, addMonths, addWeeks} from 'date-fns'
+import Footer from '../components/Footer.js';
+import '../components/Footer.css';
+import './NotificationPage.css';
 
 const NotificationsPage = ({user}) => {
     const [notifications, setNotifications] = useState([])
@@ -11,11 +14,11 @@ const NotificationsPage = ({user}) => {
                 fetch(`http://localhost:5000/users?name=${user}`)
                 .then(res => res.json())
                 .then(users => {
-                    if(user.length > 0) {
+                    if(users.length > 0) {
                         const userData = users[0]
                         const expiringSubscriptions = userData.subscriptions.filter(subscription => {
                             const daysLeft = calculateDaysLeft(subscription.date_of_payment, subscription.billing_cycle)
-                            return daysLeft <=7
+                            return daysLeft <= 7
                         })
                         setNotifications(expiringSubscriptions)
                     }
@@ -66,6 +69,7 @@ const NotificationsPage = ({user}) => {
             <p>No subscriptions are expiring soon.</p>
         )}
     </div>
-)
-}
-export default NotificationsPage
+);
+};
+
+export default NotificationsPage;

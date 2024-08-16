@@ -136,24 +136,23 @@ const HomePage = ({ user }) => {
 
   return (
     <div className="myHomePage">
-    <div className="topSection">
-      <div className="leftColumn">
-        <SubscriptionsForm user={user} onAddSubscription={handleAddSubscription} />
+      <div className="topSection">
+        <div className="leftColumn">
+          <SubscriptionsForm user={user} onAddSubscription={handleAddSubscription} />
+        </div>
+        <div className="rightColumn">
+          <div className="rightColumnContainer">
+            <SearchBar setSearchTerm={setSearchTerm} className="search" />
+            <Filter selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} className="filter" />
+            <PaymentDateFilter startDate={startDate} endDate={endDate} onStartDateChange={setStartDate} onEndDateChange={setEndDate} className="dates" />
+          </div>
+        </div>
       </div>
-      <div className="rightColumn">
-      <div className="rightColumnContainer">
-        <SearchBar setSearchTerm={setSearchTerm} className="search"/>
-        <Filter selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} className="filter" />
-        <PaymentDateFilter startDate={startDate} endDate={endDate} onStartDateChange={setStartDate} onEndDateChange={setEndDate} className="dates"/>
+      <div className="tableContainer">
+        <Table subscriptions={filteredSubscriptions} handleDelete={handleDelete} onUpdate={handleUpdateSubscription} />
       </div>
+      <Footer />
     </div>
-    </div>
-    <div className="tableContainer">
-      <Table subscriptions={filteredSubscriptions} handleDelete={handleDelete} onUpdate={handleUpdateSubscription} />
-    </div>
-    <Footer />
-  </div>
-  
   );
 };
 

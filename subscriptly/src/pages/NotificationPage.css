@@ -1,0 +1,23 @@
+/* NotificationPage.css */
+.notifications-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.notifications-content {
+  flex: 1;
+  padding-bottom: 1rem;
+  margin-top: 200px;
+  align-items: center;
+  margin-left: 100px;
+ 
+}
+
+.footer {
+  margin-top: auto;
+}
+.notifs {
+    color: red;
+}
