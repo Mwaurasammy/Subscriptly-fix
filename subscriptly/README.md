@@ -1,5 +1,9 @@
 # GROUP TWO
 
+# Deployed Links
+[Frontend](https://subscriptly4u.netlify.app)
+[Backend](https://subscriptly-server.onrender.com/users)
+
 # **SubScriptly - Your Ultimate Subscription Manager**
 
 ---
