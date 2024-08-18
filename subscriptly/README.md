@@ -5,8 +5,9 @@
 ---
 
 # Deployed Links
-[Frontend](https://subscriptly4u.netlify.app)
-[Backend](https://subscriptly-server.onrender.com/users)
+1. [Frontend](https://subscriptly4u.netlify.app)
+
+2. [Backend](https://subscriptly-server.onrender.com/users)
 
 ## **Introduction**
 
@@ -31,7 +32,7 @@ SubScriptly is a React-based subscription management application that allows use
 - **Signup/Sign In:** Secure authentication for managing subscriptions.
 - **Add Subscription:** Add new subscriptions with details like name, category, and payment date.
 - **Cancel Subscription:** Cancel and remove subscriptions easily.
-- **Edit Subscription:** Edit a subscription.
+- **Edit Subscription:** Double click a cell to edit a subscription.
 - **Notification System:** Get alerts before subscription payments are due.
 - **Subscription Categories:** Organize subscriptions into different categories (e.g., movie apps, music apps).
 - **Search/Filter Functionality:** Quickly find subscriptions using search and filter options.

@@ -59,7 +59,7 @@ const NotificationsPage = ({user}) => {
                     const daysLeft = calculateDaysLeft(subscription.date_of_payment, subscription.billing_cycle)
                     return (
                     <li key={subscription.id}>
-                        Your subscription to {subscription.name} is expiring soon.
+                        Your subscription to {subscription.name} {daysLeft > 0 ? 'is expiring soon' : 'is expired'}.
                          ({daysLeft}) {daysLeft === 1 ? 'day' : 'days'} left!
                     </li>
                     )
