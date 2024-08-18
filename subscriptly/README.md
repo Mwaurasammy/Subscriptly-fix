@@ -4,6 +4,10 @@
 
 ---
 
+# Deployed Links
+[Frontend](https://subscriptly4u.netlify.app)
+[Backend](https://subscriptly-server.onrender.com/users)
+
 ## **Introduction**
 
 SubScriptly is a React-based subscription management application that allows users to keep track of their various digital subscriptions. With features like adding and canceling subscriptions, notifications for upcoming payments, and organizing subscriptions into categories, SubScriptly provides a streamlined way to manage your subscriptions efficiently. The app interacts with a local `db.json` file to simulate API calls and data persistence.
